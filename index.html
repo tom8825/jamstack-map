@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <script src="js/script.js"></script>
+    <link
+      href="https://fonts.googleapis.com/css?family=Roboto&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  </head>
+  <body>
+    <div id="content">
+      <div id="map-info">
+        <div id="map-info-header">Magic Kingdom</div>
+        <div id="map-info-images"></div>
+        <div id="map-info-title"></div>
+        <div id="map-info-content"></div>
+      </div>
+      <div id="map-content"></div>
+    </div>
+    <script>
+      require("dotenv").config();
+      var map;
+      function initMap() {
+        map = new google.maps.Map(document.getElementById("map-content"), {
+          center: { lat: 28.4177, lng: -81.5812 },
+          zoom: 19,
+          mapTypeId: "hybrid",
+          tilt: 60
+        });
+
+        var placesService = new google.maps.places.PlacesService(map);
+
+        map.addListener("click", function(event) {
+          if (event.placeId) {
+            event.stop();
+            placesService.getDetails({ placeId: event.placeId }, function(
+              place,
+              status
+            ) {
+              $("#map-info-title").text(place.name);
+              $("#map-info-images").html(
+                '<img src="' + place.photos[1].getUrl() + '">'
+              );
+              $("#map-info-content").html(
+                "<p>" +
+                  place.formatted_address +
+                  "</p>" +
+                  "<p>" +
+                  place.formatted_phone_number +
+                  "</p>"
+              );
+            });
+          }
+        });
+      }
+    </script>
+    <script
+      src="https://maps.googleapis.com/maps/api/js?callback=initMap&libraries=places&key=AIzaSyDF2E3gU02se_RBoFYa7IKqGA9hpjrefSM&callback=initMap"
+      async
+      defer
+    ></script>
+  </body>
+</html>
