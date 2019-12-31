@@ -5,6 +5,8 @@
 
 body {
   font-family: "Roboto", sans-serif;
+  max-height: 100vh;
+  overflow: hidden;
 }
 
 #content {
@@ -24,6 +26,7 @@ body {
   background-color: green;
   float: left;
 }
+
 #map-info-title,
 #map-info-header {
   padding: 16px 24px 16px;
@@ -32,20 +35,60 @@ body {
   font-weight: 400;
   line-height: 1.75rem;
 }
+
 #map-info-header {
   font-weight: 500;
+  padding: 6px 24px 6px;
 }
+
 #map-info-images {
-  height: 205px;
+  height: 175px;
   overflow: hidden;
   position: relative;
-  align-items: center;
-  justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  border-bottom: 1px solid #e6e6e6;
 }
+
 #map-info-images img {
   width: 100%;
   display: block;
 }
 
+#map-info-nav {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 16px 24px 16px;
+  border-bottom: 1px solid #e6e6e6;
+}
+
+.map-info-nav-item {
+  border: 2px solid black;
+  height: 50px;
+  width: 50px;
+  border-radius: 50px;
+  background-color: white;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin: auto;
+  cursor: pointer;
+}
+
+.map-info-nav-item img {
+  height: 30px;
+  margin: auto;
+}
+
+#map-info-content {
+  padding: 16px 24px 16px;
+}
 /*# sourceMappingURL=style.css.map */
