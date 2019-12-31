@@ -1,0 +1,51 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+}
+
+#content {
+  height: 100vh;
+  width: 100vw;
+}
+
+#map-info {
+  height: 100vh;
+  width: 408px;
+  float: left;
+}
+
+#map-content {
+  height: 100vh;
+  width: calc(100vw - 408px);
+  background-color: green;
+  float: left;
+}
+#map-info-title,
+#map-info-header {
+  padding: 16px 24px 16px;
+  border-bottom: 1px solid #e6e6e6;
+  font-size: 1.375rem;
+  font-weight: 400;
+  line-height: 1.75rem;
+}
+#map-info-header {
+  font-weight: 500;
+}
+#map-info-images {
+  height: 205px;
+  overflow: hidden;
+  position: relative;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+}
+#map-info-images img {
+  width: 100%;
+  display: block;
+}
+
+/*# sourceMappingURL=style.css.map */
