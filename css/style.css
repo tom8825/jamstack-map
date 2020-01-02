@@ -84,7 +84,7 @@ body {
 }
 
 .map-info-nav-item img {
-  height: 20px;
+  height: 25px;
   margin: auto;
 }
 
@@ -95,5 +95,16 @@ body {
 #disqus_thread,
 #post-list {
   font-family: "Nunito", sans-serif !important;
+}
+
+.reddit-list-item {
+  list-style: none;
+  font-size: small;
+  text-decoration: none;
+}
+
+.reddit-list-item a {
+  color: lightseagreen;
+  text-decoration: none;
 }
 /*# sourceMappingURL=style.css.map */
