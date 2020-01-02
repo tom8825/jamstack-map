@@ -36,9 +36,6 @@ $("#map-info-nav-item-reddit").click(function() {
       .fadeIn();
   });
 });
-$("#map-info-nav-item-wait-time").click(function() {
-  CheckWaitTimes();
-});
 
 function initMap() {
   map = new google.maps.Map(document.getElementById("map-content"), {
@@ -62,7 +59,28 @@ function initMap() {
           '<img src="' + place.photos[1].getUrl() + '">'
         );
         $("#map-info-nav").html();
-
+        if (
+          place.types.includes("food") ||
+          place.types.includes("restaurant")
+        ) {
+          $.getJSON(
+            "https://touringplans.com/magic-kingdom/dining.json",
+            function(result) {
+              for (var i = 0; i < result.length; i++) {
+                console.log(result[i][i].name);
+                if (result[i][i].name === place.name) {
+                  $("#menu-info").html(
+                    "Click <a href='https://disneyworld.disney.go.com/en_GB/dining/magic-kingdom/" +
+                      result[i][i].permalink +
+                      "/menus/'>here</a> for the menu."
+                  );
+                } else {
+                  $("#menu-info").html("No menu found for " + place.name + ".");
+                }
+              }
+            }
+          );
+        }
         $.getJSON(
           "https://www.reddit.com/r/WaltDisneyWorld/search.json?q=title:" +
             place.name +
@@ -79,7 +97,6 @@ function initMap() {
                     data[i].data.title +
                     "</a></li></br>"
                 );
-                console.log(data[i].data.title);
               }
             } else {
               $("#reddit-info").html("");

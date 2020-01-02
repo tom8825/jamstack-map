@@ -67,6 +67,12 @@ body {
   margin: auto;
   cursor: pointer;
 }
+.map-info-nav-item:first-child {
+  margin-left: 0;
+}
+.map-info-nav-item:last-child {
+  margin-right: 0;
+}
 .map-info-nav-item img {
   height: 25px;
   margin: auto;
