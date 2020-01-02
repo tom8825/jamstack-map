@@ -1,19 +1,30 @@
 var map;
 
-$("#map-info-nav-item-comments").click(function() {
-  $("#tripadvisor-info").hide(1000);
-  $("#menu-info").hide(1000);
-  $("#disqus_thread").show(1000);
+$(document).ready(function() {
+  $("#tripadvisor-info, #menu-info, #disqus_thread").fadeOut(500);
 });
+
+$("#map-info-nav-item-comments").click(function() {
+  $("#tripadvisor-info, #menu-info").fadeOut(500, function() {
+    $("#disqus_thread")
+      .delay(500)
+      .fadeIn();
+  });
+});
+
 $("#map-info-nav-item-tripadvisor").click(function() {
-  $("#disqus_thread").hide(1000);
-  $("#menu-info").hide(1000);
-  $("#tripadvisor-info").show(1000);
+  $("#disqus_thread, #menu-info").fadeOut(500, function() {
+    $("#tripadvisor-info")
+      .delay(500)
+      .fadeIn();
+  });
 });
 $("#map-info-nav-item-menu").click(function() {
-  $("#tripadvisor-info").hide(1000);
-  $("#disqus_thread").hide(1000);
-  $("#menu-info").show(1000);
+  $("#tripadvisor-info, #disqus_thread").fadeOut(500, function() {
+    $("#menu-info")
+      .delay(500)
+      .fadeIn();
+  });
 });
 $("#map-info-nav-item-wait-time").click(function() {
   CheckWaitTimes();
@@ -63,6 +74,6 @@ const CheckWaitTimes = () => {
       console.error(error);
     })
     .then(() => {
-      setTimeout(CheckWaitTimes, 1000 * 60 * 5); // refresh every 5 minutes
+      setTimeout(CheckWaitTimes, 500 * 60 * 5); // refresh every 5 minutes
     });
 };
