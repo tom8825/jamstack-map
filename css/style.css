@@ -4,7 +4,7 @@
 }
 
 body {
-  font-family: "Roboto", sans-serif;
+  font-family: "Nunito", sans-serif;
   max-height: 100vh;
   overflow: hidden;
 }
@@ -18,6 +18,7 @@ body {
   height: 100vh;
   width: 408px;
   float: left;
+  background-color: #c3e3f8;
 }
 
 #map-content {
@@ -32,7 +33,7 @@ body {
   padding: 16px 24px 16px;
   border-bottom: 1px solid #e6e6e6;
   font-size: 1.375rem;
-  font-weight: 400;
+  font-weight: 300;
   line-height: 1.75rem;
 }
 
@@ -71,11 +72,11 @@ body {
 }
 
 .map-info-nav-item {
-  border: 2px solid black;
-  height: 50px;
-  width: 50px;
+  border: 1px solid black;
+  height: 45px;
+  width: 45px;
   border-radius: 50px;
-  background-color: white;
+  background-color: none;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -84,11 +85,16 @@ body {
 }
 
 .map-info-nav-item img {
-  height: 30px;
+  height: 20px;
   margin: auto;
 }
 
 #map-info-content {
   padding: 16px 24px 16px;
+}
+
+#disqus_thread,
+#post-list {
+  font-family: "Nunito", sans-serif !important;
 }
 /*# sourceMappingURL=style.css.map */

@@ -15,6 +15,9 @@ $("#map-info-nav-item-menu").click(function() {
   $("#disqus_thread").hide(1000);
   $("#menu-info").show(1000);
 });
+$("#map-info-nav-item-wait-time").click(function() {
+  CheckWaitTimes();
+});
 
 function initMap() {
   map = new google.maps.Map(document.getElementById("map-content"), {
@@ -42,3 +45,24 @@ function initMap() {
     }
   });
 }
+
+const Themeparks = require("themeparks");
+
+const DisneyWorldMagicKingdom = new Themeparks.Parks.WaltDisneyWorldMagicKingdom();
+
+const CheckWaitTimes = () => {
+  DisneyWorldMagicKingdom.GetWaitTimes()
+    .then(rideTimes => {
+      rideTimes.forEach(ride => {
+        console.log(
+          `${ride.name}: ${ride.waitTime} minutes wait (${ride.status})`
+        );
+      });
+    })
+    .catch(error => {
+      console.error(error);
+    })
+    .then(() => {
+      setTimeout(CheckWaitTimes, 1000 * 60 * 5); // refresh every 5 minutes
+    });
+};
