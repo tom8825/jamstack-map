@@ -6,7 +6,7 @@
 body {
   font-family: "Nunito", sans-serif;
   max-height: 100vh;
-  overflow: hidden;
+  overflow-x: hidden;
 }
 
 #content {
@@ -20,11 +20,17 @@ body {
   float: left;
 }
 
+#disqus_thread,
+#reddit-info {
+  padding: 16px 24px 16px;
+}
+
 #map-content {
   height: 100vh;
   width: calc(100vw - 408px);
   background-color: green;
-  float: left;
+  left: 408px;
+  position: fixed !important;
 }
 
 #map-info-title,
@@ -96,8 +102,9 @@ body {
   margin: auto;
 }
 
-#map-info-content {
-  padding: 16px 24px 16px;
+.map-info-nav-item svg {
+  height: 25px;
+  margin: auto;
 }
 
 #disqus_thread,
@@ -114,5 +121,79 @@ body {
 .reddit-list-item a {
   color: lightseagreen;
   text-decoration: none;
+}
+
+#poi-info {
+  font-size: small;
+}
+
+#poi-info tr {
+  margin-bottom: 10px;
+}
+
+#poi-info button span:last-of-type {
+  text-align: right;
+}
+
+#poi-info tr::after {
+  content: "";
+  border: 1px solid red;
+}
+
+/************************************/
+/* Style the button that is used to open and close the collapsible content */
+.collapsible {
+  background-color: white;
+  cursor: pointer;
+  padding: 18px;
+  width: 100%;
+  border: none;
+  text-align: left;
+  outline: none;
+  font-size: 15px;
+}
+
+/* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
+.active,
+.collapsible:hover {
+  background-color: #ccc;
+}
+
+/* Style the collapsible content. Note: hidden by default */
+.content {
+  padding: 0 18px;
+  background-color: #f1f1f1;
+  max-height: 0;
+  overflow: hidden;
+  -webkit-transition: max-height 0.2s ease-out;
+  transition: max-height 0.2s ease-out;
+}
+
+.content p {
+  padding: 18px 0;
+}
+
+.collapsible {
+  border-bottom: 1px solid #e6e6e6;
+}
+
+.collapsible-rating {
+  font-weight: 600;
+}
+
+.collapsible:after {
+  content: "\02795";
+  /* Unicode character for "plus" sign (+) */
+  font-size: 10px;
+  color: white;
+  font-weight: bold;
+  float: right;
+  margin-left: 5px;
+  border: none;
+}
+
+.active:after {
+  content: "\2796";
+  /* Unicode character for "minus" sign (-) */
 }
 /*# sourceMappingURL=style.css.map */
